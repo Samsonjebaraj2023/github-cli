@@ -4,6 +4,10 @@ on :
   push:
     branches : 
       - main
+  pull_request :
+    branches:
+      - main
+      
 jobs: 
   hello :
     runs-on :  ubuntu-latest
@@ -12,5 +16,10 @@ jobs:
       - name : hello world
         run : echo "Hello World from Samson "
         shell : bash 
-  
+  goodbye :
+    runs-on : ubuntu-latest
+    steps:
+      - name  : Goodbye
+        run : echo "Goodbye team "
+        shell : bash
       

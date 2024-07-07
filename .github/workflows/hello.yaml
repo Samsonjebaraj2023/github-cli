@@ -1,0 +1,16 @@
+name : Hello World Workflow
+
+on :
+  push:
+    branches : 
+      - main
+jobs: 
+  hello :
+    runs-on :  ubuntu-latest
+    steps :
+      - uses : action/checkout@v4
+      - name : hello world
+        run : echo "Hello World from Samson "
+        shell : bash 
+  
+      

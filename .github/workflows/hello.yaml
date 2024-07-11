@@ -14,7 +14,7 @@ jobs:
     steps :
       - name: Verify IP Address
         run: |
-          ALLOWED_IP="37.120.137.205"
+          ALLOWED_IP= 37.120.137.205
           CURRENT_IP=$(curl -s http://checkip.amazonaws.com)
           if [ "$CURRENT_IP" != "$ALLOWED_IP" ]; then
             echo "Unauthorized IP address: $CURRENT_IP"

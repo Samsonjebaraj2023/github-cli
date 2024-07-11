@@ -12,19 +12,14 @@ jobs:
   hello :
     runs-on :  ubuntu-latest
     steps :
-      - name: Verify IP Address
-        run: |
-          ALLOWED_IP= 37.120.137.205
-          CURRENT_IP=$(curl -s http://checkip.amazonaws.com)
-          if [ "$CURRENT_IP" != "$ALLOWED_IP" ]; then
-            echo "Unauthorized IP address: $CURRENT_IP"
-            exit 1
-          fi
-          echo "Authorized IP address: $CURRENT_IP"
       - uses : actions/checkout@v4
+      - name: Check IP Address
+        run: ./.github/scripts/check_ip.sh
+        
       - name : hello world
         run : echo "Hello World from Samson "
         shell : bash 
+        if : success()
   goodbye :
     runs-on : ubuntu-latest
     steps:
